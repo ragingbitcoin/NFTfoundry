@@ -1,0 +1,18 @@
+{
+  "title": "NFT Foundry",
+  "buttons": [
+    {
+      "label": "Marketplace",
+      "url": "/marketplace"
+    },
+    {
+      "label": "NFT Deployer",
+      "url": "/deployer"
+    },
+    {
+      "label": "NFT Tools",
+      "url": "/tools"
+    }
+  ]
+}
+

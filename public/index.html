@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title id="page-title"></title>
+    <style>
+      body {
+        font-family: 'Times New Roman', serif;
+      }
+      .header {
+        text-align: center;
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('data.json')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('page-title').textContent = data.title;
+
+            const buttons = document.querySelectorAll('.buttons button');
+            buttons.forEach((button, index) => {
+              button.textContent = data.buttons[index].label;
+              button.addEventListener('click', function() {
+                window.location.href = data.buttons[index].url;
+              });
+            });
+          })
+          .catch(error => console.error(error));
+      });
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <h1 id="page-heading"></h1>
+      <div class="buttons">
+        <button></button>
+        <button></button>
+        <button></button>
+      </div>
+    </div>
+  </body>
+</html>
