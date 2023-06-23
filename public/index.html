@@ -1,52 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title id="page-title"></title>
-    <style>
-      body {
-        font-family: 'Times New Roman', serif;
-      }
-      .header {
-        text-align: center;
-        margin-top: 100px; /* Add desired margin */
-      }
-      .buttons {
-        display: flex;
-        justify-content: center;
-        gap: 14px;
-        margin-top: 20px; /* Add desired margin */
-      }
-    </style>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        fetch('data.json')
-          .then(response => response.json())
-          .then(data => {
-            document.getElementById('page-title').textContent = data.title;
-            document.getElementById('page-heading').textContent = data.heading;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Foundry</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Content for the landing page -->
+    <h1>Welcome to NFT Foundry!</h1>
+    <p>Discover and trade unique digital assets.</p>
 
-            const buttons = document.querySelectorAll('.buttons button');
-            buttons.forEach((button, index) => {
-              button.textContent = data.buttons[index].label;
-              button.addEventListener('click', function() {
-                window.location.href = data.buttons[index].url;
-              });
-            });
-          })
-          .catch(error => console.error(error));
-      });
-    </script>
-  </head>
-  <body>
-    <div class="header">
-      <h1 id="page-heading"></h1>
-      <div class="buttons">
-        <button></button>
-        <button></button>
-        <button></button>
-      </div>
-    </div>
-  </body>
+    <!-- Dynamic buttons -->
+    <div id="buttonsContainer"></div>
+
+    <script src="web3.js"></script>
+    <script src="walletConnect.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>
