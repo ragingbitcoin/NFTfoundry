@@ -10,11 +10,13 @@
       }
       .header {
         text-align: center;
+        margin-top: 100px; /* Add desired margin */
       }
       .buttons {
         display: flex;
         justify-content: center;
         gap: 14px;
+        margin-top: 20px; /* Add desired margin */
       }
     </style>
     <script>
@@ -23,6 +25,7 @@
           .then(response => response.json())
           .then(data => {
             document.getElementById('page-title').textContent = data.title;
+            document.getElementById('page-heading').textContent = data.heading;
 
             const buttons = document.querySelectorAll('.buttons button');
             buttons.forEach((button, index) => {

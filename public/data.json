@@ -1,5 +1,6 @@
 {
   "title": "NFT Foundry",
+  "heading": "Welcome to NFT Foundry",
   "buttons": [
     {
       "label": "Marketplace",
@@ -15,4 +16,3 @@
     }
   ]
 }
-
