@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NFT Foundry - Marketplace</title>
+  <title>Marketplace</title>
+  <link rel="stylesheet" href="/public/Styles/main.css">
 </head>
+
 <body>
-  <h1>NFT Marketplace</h1>
-  <!-- Add marketplace-specific content and logic here -->
+  <div class="header">
+    <h1>Marketplace</h1>
+  </div>
+
+  <div class="search-container">
+    <button id="back-btn">Back</button>
+    <input type="text" id="search-input" class="search-input" placeholder="Enter an address or keyword">
+    <button id="search-button" class="search-button">Search</button>
+  </div>
+
+  <div class="marketplace">
+    <!-- Marketplace content here -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const backBtn = document.getElementById('back-btn');
+      backBtn.addEventListener('click', () => {
+        window.history.back();
+      });
+
+      const searchButton = document.getElementById('search-button');
+      searchButton.addEventListener('click', () => {
+        const searchInput = document.getElementById('search-input').value.trim();
+        if (searchInput) {
+          // Modify the URL with the search input
+          const etherscanUrl = `https://etherscan.io/search?q=${searchInput}`;
+          window.location.href = etherscanUrl;
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>

@@ -6,7 +6,7 @@
     "scripts": {
       "start": "node app.js"
     },
-    "author": "Your Name",
+    "author": "raging.eth",
     "license": "CC0-1.0",
     "dependencies": {
       "express": "^4.17.1"

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="public/Styles/main.css">
+  <style>
+    /* Additional inline styles for edit-profile.html */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Adjusted to space between */
+      margin-bottom: 20px;
+    }
+
+    .edit-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .edit-form input {
+      margin-bottom: 10px;
+      padding: 8px;
+    }
+
+    .edit-form button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>Edit Profile</h1>
+    <button id="back-btn">Back</button>
+  </div>
+
+  <div class="edit-form">
+    <input type="text" id="name-input" placeholder="Enter your name">
+    <input type="text" id="bio-input" placeholder="Enter your bio">
+    <input type="email" id="email-input" placeholder="Enter your email">
+    <input type="text" id="eth-address-input" placeholder="Enter your ETH address">
+
+    <h3>Top Friends</h3>
+    <ul id="top-friends-list">
+      <!-- Top friends list here -->
+    </ul>
+
+    <input type="text" id="friend-input" placeholder="Enter a top friend's name">
+    <button id="add-friend-btn">Add Friend</button>
+
+    <button id="save-btn">Save</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const backBtn = document.getElementById('back-btn');
+      backBtn.addEventListener('click', () => {
+        window.history.back();
+      });
+
+      const addFriendBtn = document.getElementById('add-friend-btn');
+      const friendInput = document.getElementById('friend-input');
+      const topFriendsList = document.getElementById('top-friends-list');
+
+      addFriendBtn.addEventListener('click', () => {
+        const friendName = friendInput.value.trim();
+
+        if (friendName) {
+          const friendItem = document.createElement('li');
+          friendItem.textContent = friendName;
+          topFriendsList.appendChild(friendItem);
+          friendInput.value = '';
+        }
+      });
+
+      const saveBtn = document.getElementById('save-btn');
+      saveBtn.addEventListener('click', () => {
+        const name = document.getElementById('name-input').value.trim();
+        const bio = document.getElementById('bio-input').value.trim();
+        const email = document.getElementById('email-input').value.trim();
+        const ethAddress = document.getElementById('eth-address-input').value.trim();
+        const topFriends = Array.from(topFriendsList.children).map(item => item.textContent);
+
+        const profileData = {
+          name,
+          bio,
+          email,
+          ethAddress,
+          topFriends,
+        };
+
+        // Convert profileData to JSON string
+        const jsonData = JSON.stringify(profileData);
+
+        // Save JSON data to a file using a server-side logic
+        // Replace the following line with your server-side code to save the data
+        saveProfileData(jsonData);
+      });
+
+      function saveProfileData(data) {
+        // Your server-side logic to save the data to the data folder
+        // Implement the logic to write the data to a file on your server
+      }
+    });
+  </script>
+</body>
+
+</html>
