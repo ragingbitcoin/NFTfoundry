@@ -1,22 +1,26 @@
-// JavaScript code for application-specific functionality
-// This file can include custom logic for your application, including interactions with the blockchain, API calls, etc.
-// Example: Handling events and updating UI based on wallet connection status
+const express = require('express');
+const app = express();
+const path = require('path');
 
-// Dynamic buttons data
-const buttonsData = [
-  { label: 'Marketplace', url: '/marketplace' },
-  { label: 'NFT Tools', url: '/tools' },
-  { label: 'NFT Deployer', url: '/deployer' }
-];
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Create and append buttons dynamically
-const buttonsContainer = document.getElementById('buttonsContainer');
-buttonsData.forEach(buttonData => {
-  const button = document.createElement('button');
-  button.textContent = buttonData.label;
-  button.classList.add('button');
-  button.addEventListener('click', () => {
-    window.location.href = buttonData.url;
-  });
-  buttonsContainer.appendChild(button);
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/marketplace', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'marketplace.html'));
+});
+
+app.get('/tools', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'tools.html'));
+});
+
+app.get('/deployer', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'deployer.html'));
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

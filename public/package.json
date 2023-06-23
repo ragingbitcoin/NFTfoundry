@@ -1,0 +1,15 @@
+{
+    "name": "nft-foundry",
+    "version": "1.0.0",
+    "description": "NFT Foundry - A web3 application that includes a marketplace, tools, and deployers for NFTs",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "author": "Your Name",
+    "license": "CC0-1.0",
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }
+  
